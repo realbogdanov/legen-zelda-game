@@ -1,8 +1,11 @@
 import pygame, sys
 from settings import *
 
+from level import Level
+
 class Game:
 	def __init__(self):
+
 		# general setup
 		# основные настройки, инициализация игры
 		pygame.init()
@@ -10,7 +13,10 @@ class Game:
 		pygame.display.set_caption("Zelda")
 		self.clock = pygame.time.Clock()
 
+		self.level = Level()
+
 	def run(self):
+
 		#Operation of the game and its closing conditions
 		#Работа игры и условия её закрытия
 		while True:
@@ -20,9 +26,9 @@ class Game:
 					sys.exit()
 
 			self.screen.fill("black")
+			self.level.run()
 			pygame.display.update()
 			self.clock.tick(FPS)
-		pass
 
 
 if __name__ == '__main__':
